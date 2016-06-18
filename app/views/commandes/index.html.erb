@@ -1,0 +1,39 @@
+<br>
+<section class="main no-padding">
+<div class="container">
+<div class="row">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title"> <a href="#collapseB1" data-toggle="collapse"> Mes Commandes </a> </h4>
+            </div>
+
+<div class="panel-body">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Société</th>
+                            <th>email</th>
+                            <th>Tel</th>
+                            <th>adresse</th>
+                            <th>Pack</th>
+                            <th>Note</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% @commandes.each do |commande| %>
+                            <tr>
+                                <td><%= commande.nom_societe %></td>
+                                <td><%= commande.email_societe %></td>
+                                <td><%= commande.tel_societe %></td>
+                                <td><%= commande.adresse_societe %></td>
+                                <td><%= commande.plan %></td>
+                                <td><%= commande.note %></td>
+                            </tr>
+                        <% end %>
+                    </tbody>
+                </table>             
+            </div>
+        </div>
+</div>
+</div>
+</section>

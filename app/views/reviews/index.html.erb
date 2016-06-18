@@ -1,0 +1,62 @@
+<section class="main no-padding">
+<%= render('shared/account_fix') %>
+<div class="container">
+<div class="row">
+<%= render('shared/account_menu') %>
+    <div class="col-md-9 col-sm-9">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title"> <a href="#collapseB1" data-toggle="collapse"> Mes avis </a> </h4>
+            </div>
+
+<div class="panel-body">
+                <div class="before-table">
+                </div>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Nom</th>
+                            <th>Commentaire</th>
+                            <th>PNote</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% @reviews.order("id desc").each do |review| %>
+                            <tr>
+                            <td>
+                                <%= review.name %>(<%= review.email %>)
+                            </td>
+                            <td>
+                                <div class="item-title"><strong><%= review.comment %></strong></div>
+                            </td>
+                            <td><%= review.star %>/5</div></td>
+                            <td><%= review.created_at.strftime("%v") %></td>
+                        </tr>
+                        <script>
+                            $('#stars_<%= review.id %>').raty({
+                                path: '/assets',
+                                readOnly: true,
+                                score: <%= review.star %>
+                            });
+                        </script>
+                        <% end %>
+                    </tbody>
+                </table>   
+                <div class="row">
+                    <div class="col-xs-12 text-right">
+                        <ul class="pagination table-pagination">
+                            <li><a href="#">1</a></li>
+                            <li><a href="#">2</a></li>
+                            <li class="active"><a href="#">3</a></li>
+                            <li><a href="#">4</a></li>
+                            <li><a href="#">5</a></li>
+                        </ul>
+                    </div>
+                </div>           
+            </div>
+        </div>
+    </div>  
+</div>
+    </div>
+</section>

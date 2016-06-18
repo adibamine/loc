@@ -1,0 +1,107 @@
+<section class="main">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <ul class="breadcrumb pull-left">
+                                <li><%= link_to "Home", root_path %></li>
+                                <li>Contact</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="map">
+                                <div id="map_canvas" style="height:311px; weight:100%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4 col-sm-4">
+                            <div class="widget">
+                                <div class="widget-header">
+                                    <h3>Adresse bureau</h3>
+                                </div>
+                                <div class="widget-body">
+                                    <address>
+                                        <strong>RentalCars.</strong><br/>
+                                        92, Lotissement Othmane, Marrakech<br/>
+                                        contact@rentalcars.ma<br/>
+                                        http://rentalcars.ma<br/>
+                                        Phone : +212650-18-88-76
+                                    </address>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-8 col-sm-8">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="widget">
+                                        <div class="widget-header">
+                                            <h3>Contactez-nous</h3>
+                                        </div>
+                                        <div class="widget-body">
+                                            <%= form_for @email do |f| %>
+                                                <input type="hidden" name="email[voiture_id]" value="0">
+                                                <input type="hidden" name="email[receiver_email]" value="adib.amine.mdr@gmail.com">
+                                                <p>Si vous avez une question, n'hesitez pas à nous envoyer un message!</p>
+                                                <div class="row">
+                                                    <div class="col-xs-4">
+                                                        <input name="email[nom]" type="text" placeholder="Nom complet" class="form-control input-lg">
+                                                    </div>
+                                                    <div class="col-xs-4">
+                                                        <input name="email[sender_email]" type="text" placeholder="Email" class="form-control input-lg">
+                                                    </div>
+                                                    <div class="col-xs-4">
+                                                        <input name="email[objet]" type="text" placeholder="Objet" class="form-control input-lg">
+                                                    </div>
+                                                </div>
+                                                <br>
+                                                <div class="row">
+                                                    <div class="col-xs-12">
+                                                        <textarea name="email[contenu]"  rows="5" placeholder="Votre message..." class="form-control"></textarea>
+                                                    </div>
+                                                </div>
+                                                <br>
+                                                <div class="row">
+                                                    <div class="col-xs-12">
+                                                        <button type="submit" class="btn btn-lg btn-custom pull-right">Envoyer</button>
+                                                    </div>
+                                                </div>
+                                            <% end %>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+<script>
+  function loadScript(src,callback){
+  
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    if(callback)script.onload=callback;
+    document.getElementsByTagName("head")[0].appendChild(script);
+    script.src = src;
+  }
+  loadScript('http://maps.googleapis.com/maps/api/js?v=3&sensor=false&callback=initialize');
+
+
+function initialize() {
+    
+    var mapOptions = {
+          zoom: 8,
+          center: new google.maps.LatLng(31.65111, -8.042590),
+          mapTypeId: google.maps.MapTypeId.ROADMAP,
+    };
+    map = new google.maps.Map(document.getElementById('map_canvas'),
+            mapOptions);
+    var marker = new google.maps.Marker({
+        position: new google.maps.LatLng(31.65111, -8.042590),
+        title: "Rentalcars.ma" 
+      });
+
+    marker.setMap(map);
+  }
+  </script>

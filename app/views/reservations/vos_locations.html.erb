@@ -1,0 +1,93 @@
+<section class="main no-padding">
+<%= render('shared/account_fix') %>
+<div class="container">
+<div class="row">
+    <div class="col-md-3 col-sm-3">
+        <div class="widget">
+            <div class="widget-header">
+                <h3>Menu</h3>
+            </div>
+            <div class="widget-body">
+                <ul class="author-menus">
+            <li><%= link_to "Vos voitures", voitures_path %></li>
+            <li><%= link_to "Vos reservations", vos_reservations_path %></li>
+            <li><%= link_to "Vos locations", vos_locations_path, class: "sidebar-link" %></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-9 col-sm-9">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title"> <a href="#collapseB1" data-toggle="collapse"> My Profile </a> </h4>
+            </div>
+
+<div class="panel-body">
+                <div class="before-table">
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <a href="account_create_post.html" class="btn btn-custom"><i class="fa fa-plus"></i> Faites une nouvelles location</a>
+                        </div>
+                    </div>
+                </div>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Voiture</th>
+                            <th>Details</th>
+                            <th>Total</th>
+                            <th>Loueur</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% @locations.each do |location| %>
+                            <tr>
+                            <td>
+                                <%= link_to voiture_path(location.voiture) do %>
+                                <%= image_tag location.voiture.photos[0].image.url(:thumb), class: "thumb-img img-responsive" if location.voiture.photos.length > 0 %>
+                                <% end %>
+                            </td>
+                            <td>
+                                <div class="item-title"><a href="detail.html" target="_blank"><strong><%= "#{location.voiture.marque} #{location.voiture.modele}" %></strong></a></div>
+                                <div class="item-meta">
+                                    <ul>
+                                        <li class="item-date"><i class="fa fa-clock-o"></i> <%= location.start_date.strftime('%v') %>
+                                        </li>
+                                        <li class="item-location"><i class="fa fa-map-marker"></i> <%= location.voiture.ville %>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </td>
+                            <td><%= location.total %>Dhs</td>
+                            <td><%= link_to user_path(location.voiture.user) do %>
+                            <%= image_tag avatar_url(location.voiture.user), class: "img-circle avatar-medium" %>
+                            <% end %>
+                            </td>
+                        </tr>
+                        <% end %>
+                    </tbody>
+                </table>
+                <div class="row">
+                    <div class="col-xs-3">
+                        <select class="form-control">
+                            <option selected="">Bulk Action</option>
+                            <option>Block</option>
+                            <option>Delete</option>
+                        </select>
+                    </div>
+                    <div class="col-xs-9 text-right">
+                        <ul class="pagination table-pagination">
+                            <li><a href="#">1</a></li>
+                            <li><a href="#">2</a></li>
+                            <li class="active"><a href="#">3</a></li>
+                            <li><a href="#">4</a></li>
+                            <li><a href="#">5</a></li>
+                        </ul>
+                    </div>
+                </div>                  
+            </div>
+        </div>
+    </div>  
+</div>
+    </div>
+</section>

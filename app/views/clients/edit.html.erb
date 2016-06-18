@@ -1,0 +1,46 @@
+<div class="widget">
+<%= form_for(@client) do |client_field| %>
+
+	<div class="row">
+		<div class="col-md-6">
+			<label>Nom</label>
+			<%= client_field.text_field :nom, placeholder: 'Nom', class: 'form-control' %>		
+		</div>
+		<div class="col-md-6">
+			<label>Prenom</label>
+			<%= client_field.text_field :prenom, placeholder: 'Prenom', class: 'form-control' %>		
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-6">
+			<label>CIN</label>
+			<%= client_field.text_field :cin, placeholder: 'CIN', class: 'form-control' %>		
+		</div>
+		<div class="col-md-6">
+			<label>Age</label>
+			<%= client_field.text_field :age, placeholder: 'Age', class: 'form-control' %>		
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-6">
+			<label>Ville</label>
+			<%= client_field.text_field :ville, placeholder: 'Ville', class: 'form-control' %>		
+		</div>
+		<div class="col-md-6">
+			<label>Télephone</label>
+			<%= client_field.text_field :telephone, placeholder: 'Telephone', class: 'form-control' %>		
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-6">
+			<label>Email</label>
+			<%= client_field.text_field :email, placeholder: 'Email', class: 'form-control' %>		
+		</div>
+	</div><br>
+	<%= client_field.submit "Enregistrer", id:"btn_save", class: "btn btn-primary wide" %>
+	
+<% end %>
+</div>

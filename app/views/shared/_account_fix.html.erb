@@ -1,0 +1,30 @@
+<div class="account-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4 col-md-3 col-lg-2">
+                <!-- User avatar -->
+                <div class="profile_avatar">
+                    <%= image_tag avatar_url(current_user), class: "img-responsive", alt: "avatar" %>
+                </div>
+            </div>
+            <div class="col-sm-8 col-md-9 col-lg-10">
+                <div class="profile_summary">
+                    <!-- User name --> 
+                    <h3 class="profile_name"><%= "#{current_user.name}" %></h3>
+                    <!-- User status -->
+                    <p><%= current_user.address %></p>
+                    <!-- Contact -->
+                    <% if current_user == @user %>
+                    <%= link_to destroy_user_session_path, {class:"btn btn-warning btn-sm"} do %>
+                      <i class="fa fa-sign-out"></i> Se déconnecter
+                    <% end %>
+                    <%= link_to stats_path, {class:"btn btn-primary btn-sm"} do %>
+                      <i class="fa fa-bar-chart"></i> Statistiques
+                    <% end %>
+                    <% end %>
+
+                </div> <!-- / .profile__summary -->
+            </div>
+        </div> <!-- / .row -->
+    </div> <!-- / .container -->
+</div>

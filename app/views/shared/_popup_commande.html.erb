@@ -1,0 +1,29 @@
+<div id="popupcommande" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="myModalLabel">Laissez-nous vos coordonnées, on vous rappellera !</h3>
+      </div>
+      <div class="modal-body">
+        <%= form_for @commande , :html => {:class => 'form-horizontal col-sm-12'} do |f| %>
+          <div class="form-group"><label>Nom societe</label><input name="commande[nom_societe]" class="form-control required" placeholder="Nom de votre société" data-placement="top" data-trigger="manual" data-content="Doit contenir au moins 3 lettres." type="text"></div>
+          <div class="form-group"><label>Téléphone</label><input name="commande[tel_societe]" class="form-control required" placeholder="Votre téléphone" data-placement="top" data-trigger="manual" data-content="Doit contenir au moins 3 chiffres." type="text"></div>
+          <div class="form-group"><label>Email</label><input name="commande[email_societe]" class="form-control email" placeholder="email@you.com (Pour que nous puissions vous contacter)" data-placement="top" data-trigger="manual" data-content="Doit être un e-mail valide (user@gmail.com)" type="text"></div>
+          <div class="form-group"><label>Adresse</label><input name="commande[adresse_societe]" class="form-control required" placeholder="Votre adresse" data-placement="top" data-trigger="manual" data-content="Ne doit pas être vide." type="text"></div>
+          <div class="form-group"><label>Plan</label><select name="commande[plan]" class="form-control">
+            <option value="free">Plan Free</option>
+            <option value="standard">Plan Standard</option>
+            <option value="premium">Plan Premium</option>
+          </select>
+          </div>
+          <div class="form-group"><label>Note</label><textarea name="commande[note]" class="form-control" placeholder="Quelque chose à rajouter?" data-placement="top" data-trigger="manual"></textarea></div>
+          <div class="form-group"><button type="submit" class="btn btn-success pull-right">Envoyer!</button> <p class="help-block pull-left text-danger hide" id="form-error">&nbsp; Formulaire non valide. </p></div>
+        <% end %>
+      </div>
+      <div class="modal-footer">
+        <button class="btn" data-dismiss="modal" aria-hidden="true">Fermer</button>
+      </div>
+    </div>
+  </div>
+</div>

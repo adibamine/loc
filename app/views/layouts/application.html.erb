@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Adib Website</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="robots" content="index, follow">
+        <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:regular,700,600&amp;latin" type="text/css" />
+       	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+	  	<link rel="stylesheet" href="http://code.jquery.com/ui/1.11.3/themes/smoothness/jquery-ui.css">
+	  	<%= yield :head %>
+        <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+	  	<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+	  	<%= csrf_meta_tags %>
+
+    </head>
+	<body>
+		<div class="wrapper">
+			<%= render 'shared/navbar' %>
+			<div>
+				<%= yield :searchBar %>
+			</div>
+			<%= render 'shared/message' %>
+			<%= yield %>
+			<%= render 'shared/footer' %>
+		</div>
+	</body>
+</html>
+
+<!--<div>
+<= yield :searchBar %>
+</div> -->

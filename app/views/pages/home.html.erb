@@ -1,0 +1,130 @@
+<% content_for :searchBar do %>
+<% render 'research' %>
+<% end %>
+<section class="main">
+    <div class="container">
+        <div class="text-center">
+            <h2>Juste pour un voyage</h2>
+            <p>Découvrez le Maroc, avec <b>la bonne voiture.</b></p>
+        </div>
+
+    <br>
+
+    <div class="row">
+        <div class="col-md-4 col-sm-12">
+            <a href="search?utf8=%E2%9C%93&search=marrakech">
+                <div class="discovery-card" style="background-image: url('/assets/Marrakech.jpg')">
+                    <div class="va-container">
+                        <div class="va-middle text-center">
+                            <h2><strong>Marrakech</strong></h2>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-md-4 col-sm-6">
+            <a href="search?utf8=%E2%9C%93&search=Rabat">
+                <div class="discovery-card" style="background-image: url('/assets/Rabat.jpg')">
+                    <div class="va-container">
+                        <div class="va-middle text-center">
+                            <h2><strong>Rabat</strong></h2>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-md-4 col-sm-6">
+            <a href="search?utf8=%E2%9C%93&search=Agadir">
+                <div class="discovery-card" style="background-image: url('/assets/Agadir.jpg')">
+                    <div class="va-container">
+                        <div class="va-middle text-center">
+                            <h2><strong>Agadir</strong></h2>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <br>
+
+    <div class="text-center">
+        <h2>Plus de 100 voitures!</h2>
+        <p>Vous trouverez sûrement ce que vous chezrchez.</p>
+    </div>
+
+    <br>
+
+    <div class="row">
+        <% @voitures.each do |voiture| %>
+            
+            <div class="col-md-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading preview">
+                        <%= image_tag voiture.photos[0].image.url(:medium) if voiture.photos.length > 0 %>
+                    </div>
+                    <div class="panel-body">
+                        <%= image_tag avatar_url(voiture.user), class: "img-circle avatar-small" %>&nbsp;
+                        <%= link_to "#{voiture.marque} #{voiture.modele}", voiture %>
+                    </div>
+                </div>
+            </div>
+
+        <% end %>
+    </div>
+    </div>
+</section>
+<%= render 'counter' %>
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        // ===========Featured Owl Carousel============
+        if ($(".owl-carousel-featured").length > 0) {
+            $(".owl-carousel-featured").owlCarousel({
+                items: 3,
+                lazyLoad: true,
+                pagination: true,
+                autoPlay: 5000,
+                stopOnHover: true
+            });
+        }
+
+        // ==================Counter====================
+        $('.item-count').countTo({
+            formatter: function (value, options) {
+                return value.toFixed(options.decimals);
+            },
+            onUpdate: function (value) {
+                console.debug(this);
+            },
+            onComplete: function (value) {
+                console.debug(this);
+            }
+        });
+    });
+
+$('#query').typeahead({        
+        local: ['Marrakech','Casa Blanca','Rabat','Fès','Tanger','Agadir','Meknes','Essaouira','Ouarzazate','Oujda','Tétouane','El Jadida','Béni Melal','Chefchaouen','Safi','Salé','Kenitra','Mohammedia','Nador','Ifrane','Larache','Taroudant','Al Hoceïma','Berkane','Laâyoune','Errachidia','Khouribga','Assila','Settat','Tiznit','Taza','Midelt','Bouznika','Saïdia','Merzouga']
+});
+$('.tt-query').css('background-color','#fff');
+
+    $(function() {
+        $("#start_date").datepicker({
+            dateFormat: 'dd-mm-yy',
+            minDate: 0,
+            maxDate: '3m',
+            onSelect: function(selected) {
+                $('#end_date').datepicker("option", "minDate", selected);
+                $('#end_date').attr('disabled', false);
+            }
+        });
+        $("#end_date").datepicker({
+            dateFormat: 'dd-mm-yy',
+            minDate: 0,
+            maxDate: '3m',
+            onSelect: function(selected) {
+                $('#start_date').datepicker("option", "maxDate", selected);
+            }
+        });
+    })
+</script>

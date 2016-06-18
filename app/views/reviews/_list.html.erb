@@ -1,0 +1,38 @@
+<section class="comment-list">
+<% if @reviews.count == 0 %>
+	<div class="text-center"><h4>Aucun commentaire !</h4></div>
+<% else %>
+<% @reviews.order("id desc").each do |r| %>
+  <article class="row">
+    <div class="col-md-2 col-sm-2 hidden-xs">
+      <figure class="thumbnail">
+        <%= image_tag "general/comment_icon.jpg", :class => "img-responsive" %>
+        <figcaption class="text-center"><%= r.name %></figcaption>
+      </figure>
+    </div>
+    <div class="col-md-10 col-sm-10">
+      <div class="panel panel-default arrow left">
+        <div class="panel-body">
+          <header class="text-left">
+            <div class="comment-user"><div id="stars_<%= r.id %>"></div>
+            <time class="comment-date" datetime="16-12-2014 01:05"><i class="fa fa-clock-o"></i> <%= r.created_at.strftime("Le %m/%d/%Y à %I:%M%p") %></time>
+          </header>
+          <div class="comment-post">
+            <p>
+              <%= r.comment %>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>
+  <script>
+	$('#stars_<%= r.id %>').raty({
+		path: '/assets',
+		readOnly: true,
+		score: <%= r.star %>
+	});
+</script>
+ <% end %>
+ <% end %>
+ </section>

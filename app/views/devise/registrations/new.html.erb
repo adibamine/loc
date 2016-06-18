@@ -1,0 +1,77 @@
+    <section class="main">
+        <div class="container">
+          <div class="row" align="center">
+    <%= link_to "Sign In with Google", user_omniauth_authorize_path(:google_oauth2), class: "btn btn-primary" %>
+    <%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook), class: "btn btn-primary" %>
+  </div><hr>
+            <div class="row">
+                <div class="col-sm-5 login-form">
+                    <div class="panel panel-default">
+                        <div class="panel-intro text-center">
+                            <h1 class="logo"><i class="fa fa-recycle"></i> ADIB Web</h1>
+                        </div>
+                        <div class="panel-body">
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= render 'shared/devisemes' %>
+                                <div class="form-group">
+                                    <%= f.email_field :email, autofocus: true, :class=> "form-control", :placeholder => "Email" %>
+                                </div>
+                                <div class="form-group">
+                                    <%= f.text_field :name, :class => 'form-control', :placeholder => 'Nom société', autofocus: true %>
+                                </div>
+                                      <div class="form-group">        
+                                        <% if @validatable %>
+                                          <em>(<%= @minimum_password_length %> characters minimum)</em>
+                                        <% end %><br />
+                                        <%= f.password_field :password, :class => 'form-control', :placeholder => 'Password',  autocomplete: "off" %>
+                                      </div>
+                                <div class="form-group">
+                                    <div class="checkbox">
+                                        <label for="terms" class="string optional">
+                                            <input type="checkbox" style="" id="terms">
+                                            &nbsp I Agree with Term and Conditions
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <button class="btn btn-block btn-custom">Sign Up</button>
+                                </div>
+                            <% end %>
+                        </div>
+                        <div class="panel-footer">
+                            <p class="text-center pull-right"> <p class="text-center pull-right"> <%= link_to "Vous n'avez pas un compte?", new_user_session_path %> </p> </p>
+                            <div style=" clear:both"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        // ===========Featured Owl Carousel============
+        if ($(".owl-carousel-featured").length > 0) {
+            $(".owl-carousel-featured").owlCarousel({
+                items: 3,
+                lazyLoad: true,
+                pagination: true,
+                autoPlay: 5000,
+                stopOnHover: true
+            });
+        }
+
+        // ==================Counter====================
+        $('.item-count').countTo({
+            formatter: function (value, options) {
+                return value.toFixed(options.decimals);
+            },
+            onUpdate: function (value) {
+                console.debug(this);
+            },
+            onComplete: function (value) {
+                console.debug(this);
+            }
+        });
+    });
+</script>

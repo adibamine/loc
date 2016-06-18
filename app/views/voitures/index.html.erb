@@ -1,0 +1,94 @@
+<section class="main no-padding">
+<%= render('shared/account_fix') %>
+<div class="container">
+<div class="row">
+<%= render('shared/account_menu') %>
+    <div class="col-md-9 col-sm-9">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title"> <a href="#collapseB1" data-toggle="collapse"> Mes voitures </a> </h4>
+            </div>
+
+<div class="panel-body">
+                <div class="before-table">
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <%= link_to new_voiture_path, class:"btn btn-custom" do %>
+                                <i class="fa fa-plus"></i> Nouvelle voiture
+                            <% end %>
+                        </div>
+                    </div>
+                </div>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Voiture</th>
+                            <th>Details</th>
+                            <th>Prix/j</th>
+                            <th>Consultations</th>
+                            <th style="width:10%">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% @voitures.each do |voiture| %>
+                            <tr>
+                            <td>
+                                <%= link_to voiture_path(voiture) do %>
+                                <%= image_tag voiture.photos[0].image.url(:thumb), class: "thumb-img img-responsive" if voiture.photos.length > 0 %>
+                                <% end %>
+                            </td>
+                            <td>
+                                <div class="item-title"><strong><%= link_to "#{voiture.marque} #{voiture.modele}",voiture_path(voiture) %></strong></div>
+                                <div class="item-meta">
+                                    <ul>
+                                        <li class="item-date"><i class="fa fa-clock-o"></i> <%= voiture.created_at.strftime('%v') %>
+                                        </li>
+                                        <li class="item-location"><i class="fa fa-map-marker"></i> <%= voiture.ville %>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </td>
+                            <td><%= voiture.prix %>Dhs</td>
+                            <td><%= voiture.compteur %></td>
+                            <td>
+                                <ul class="actions-table">
+                                                        <li><%= link_to edit_voiture_path(voiture), class:"label label-success" do %>
+                                                            <i class="fa fa-pencil"></i> Modifier
+                                                        <% end %></li>
+                                                        <li><%= link_to reservate_voiture_path(voiture), class:"label label-info" do %>
+                                                            <i class="fa fa-calendar-plus-o"></i> Réserver
+                                                        <% end %></li>
+                                                        <li>
+                                                            <% if(voiture.active) %>
+                                                            <%= link_to disable_voiture_path(voiture), class:"label label-warning" do %>
+                                                            <i class="fa fa-close"></i> Desactiver
+                                                            <% end %>
+                                                            <% else %>
+                                                            <%=  link_to enable_voiture_path(voiture), class:"label label-success" do %>
+                                                            <i class="fa fa-close"></i> Activer
+                                                        <% end %>
+                                                        <% end %>
+                                                        </li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <% end %>
+                    </tbody>
+                </table> 
+                <div class="row">
+                    <div class="col-xs-12 text-right">
+                        <ul class="pagination table-pagination">
+                            <li><a href="#">1</a></li>
+                            <li><a href="#">2</a></li>
+                            <li class="active"><a href="#">3</a></li>
+                            <li><a href="#">4</a></li>
+                            <li><a href="#">5</a></li>
+                        </ul>
+                    </div>
+                </div>              
+            </div>
+        </div>
+    </div>  
+</div>
+    </div>
+</section>

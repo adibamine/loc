@@ -1,0 +1,30 @@
+<section class="main no-padding">
+<%= render('shared/account_fix') %>
+<div class="container">
+<div class="row">
+<%= render('shared/account_menu') %>
+    <div class="col-md-9 col-sm-9">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title"> <a href="#collapseB1" data-toggle="collapse"> Mes statistiques </a> </h4>
+            </div>
+
+			<div class="panel-body">
+				<h3>Annonces </h3><hr>
+				<div class="alert alert-success" role="alert">
+Vos voitures ont été consultées <%= @user.voitures_views %> fois<br>
+On a cherché à vous contacter par téléphone <%= @user.voitures_num_views %> fois<br>
+On a cherché à vous contacter par mail <%= @user.voitures_msg_views %> fois
+</div>
+<h3>Page agence </h3><hr>
+<div class="alert alert-success" role="alert">
+Votre agence a été consulté <%= @user.compteur %> fois<br>
+On a cherché à vous contacter par téléphone <%= @user.compteur_num %> fois<br>
+On a cherché à vous contacter par mail <%= @user.compteur_msg %> fois
+</div>
+			</div>
+        </div>
+    </div>  
+</div>
+    </div>
+</section>

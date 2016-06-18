@@ -1,0 +1,77 @@
+<section class="main no-padding">
+<%= render('shared/account_fix') %>
+<div class="container">
+<div class="row">
+<%= render('shared/account_menu') %>
+    <div class="col-md-9 col-sm-9">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title"> <a href="#collapseB1" data-toggle="collapse"> Mes réservations </a> </h4>
+            </div>
+
+<div class="panel-body">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Voiture</th>
+                            <th>Details</th>
+                            <th>Nb. jours</th>
+                            <th>Total</th>
+                            <th>Preneur</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                            <% @reservations.each do |reservation| %>
+                            <tr>
+                            <td>
+                                <%= link_to voiture_path(reservation.voiture) do %>
+                                <%= image_tag reservation.voiture.photos[0].image.url(:thumb), class: "thumb-img img-responsive" if reservation.voiture.photos.length > 0 %>
+                                <% end %>
+                            </td>
+                            <td>
+                                <div class="item-title"><strong><%= link_to "#{reservation.voiture.marque} #{reservation.voiture.modele}",voiture_path(reservation.voiture) %></strong></div>
+                                <div class="item-meta">
+                                    <ul>
+                                        <li class="item-date"><i class="fa fa-clock-o"></i> du <%= reservation.start_date.strftime('%v') %> au <%= reservation.end_date.strftime('%v') %>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </td>
+                            <td><%= reservation.total/reservation.voiture.prix %></td>
+                            <td><%= reservation.total %>Dhs</td>
+                            <td><%= link_to edit_client_path(reservation.client) do %>
+                                    <%= "#{reservation.client.nom}  #{reservation.client.prenom}" %>
+                                <% end %>
+                            </td>
+                            <td>
+                                <ul class="actions-table">
+                                <li><%= link_to edit_reservation_path(reservation), class:"label label-success" do %>
+                            <i class="fa fa-pencil"></i> edit
+                                <% end %></li>
+                                <li><%= link_to disable_reservation_path(reservation), class:"label label-danger" do %>
+                            <i class="fa fa-close"></i> supprimer
+                                <% end %></li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <% end %>
+                    </tbody>
+                </table>
+                <div class="row">
+                    <div class="col-xs-12 text-right">
+                        <ul class="pagination table-pagination">
+                            <li><a href="#">1</a></li>
+                            <li><a href="#">2</a></li>
+                            <li class="active"><a href="#">3</a></li>
+                            <li><a href="#">4</a></li>
+                            <li><a href="#">5</a></li>
+                        </ul>
+                    </div>
+                </div>                  
+            </div>
+        </div>
+    </div>  
+</div>
+    </div>
+</section>

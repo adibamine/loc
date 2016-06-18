@@ -1,0 +1,149 @@
+<section class="category-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                &nbsp;
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-3 col-sm-3">
+                <div class="widget">
+                    <div class="widget-header">
+                        <h3>Recherche par ville</h3>
+                    </div>
+                    <div class="widget-body">
+                        <ul class="trends">
+                            <li><%= link_to "Agadir", "search?utf8=✓&search=Agadir" %><span class="item-numbers"></span></a></li>
+                            <li><%= link_to "Casa Blanca", "search?utf8=✓&search=Casa+Blanca" %></span></a></li>
+                            <li><%= link_to "Rabat", "search?utf8=✓&search=Rabat" %></span></a></li>
+                            <li><%= link_to "Marrakech", "search?utf8=✓&search=Marrakech" %></span></a></li>
+                            <li><%= link_to "Kenitra", "search?utf8=✓&search=Kenitra" %></span></a></li>
+                            <li><%= link_to "Tanger", "search?utf8=✓&search=Tanger" %></span></a></li>
+                            <li><%= link_to "Fes", "search?utf8=✓&search=Fes" %></span></a></li>
+                            <li><%= link_to "Tetouane", "search?utf8=✓&search=Tetouane" %></span></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="widget">
+                    <%= search_form_for @search, url: search_path do |f| %>
+                    <div class="widget-header">
+                        <h3>Prix</h3>
+                    </div>
+                        <div class="widget-body">
+                            <div class="input-group">
+                              <span class="input-group-addon">Min</span>
+                              <input type="number" min="0" max="10000" name="prix_min"
+   onKeyPress="return numbersonly(this, event)" class="form-control" value="0">
+                              <span class="input-group-addon">Dh</span>
+                            </div></br>
+                            <div class="input-group">
+                              <span class="input-group-addon">Max</span>
+                              <input type="number" min="0" max="10000" name="prix_max"
+   onKeyPress="return numbersonly(this, event)" class="form-control" value="2000">
+                              <span class="input-group-addon">Dh</span>
+                            </div>
+                        </div></br>
+                    <div class="widget-header">
+                        <h3>Ville de retour</h3>
+                    </div>
+                    <div class="widget-body">
+                        <ul class="brands">
+                            <%= f.hidden_field :search, :value => params["search"] %>
+                            <li><%= check_box_tag "q[is_return_marrakech_eq]", true %> Marrakech</li>
+                            <li><%= check_box_tag "q[is_return_agadir_eq", true %> Agadir</li>
+                            <li><%= check_box_tag "q[is_return_casablanca_eq]", true %> Casablanca</li>
+                            <li><%= check_box_tag "q[is_return_kenitra_eq]", true %> Kenitra</li>
+                            <li><%= check_box_tag "q[is_return_laayoun_eq]", true %> Laayoun</li>
+                            <li><%= check_box_tag "q[is_return_fes_eq]", true %> Fes</li>
+                            <li><%= check_box_tag "q[is_return_rabat_eq]", true %> Rabat</li>
+                            <li><%= check_box_tag "q[is_return_essaouira_eq]", true %> Essaouira</li>                            
+                        </ul>
+                    </div></br>
+                    <div class="widget-header">
+                        <h3>Tri par accessoires</h3>
+                    </div>
+                    <div class="widget-body">
+                        <ul class="brands">
+                            <li><%= check_box_tag "q[is_clim_eq]", true %> Climatiseur</li>
+                            <li><%= check_box_tag "q[is_direction_assiste_eq]", true %> Direction assistee</li>
+                            <li><%= check_box_tag "q[is_regulateur_vitesse_eq]", true %> Regulateur vitesse</li>
+                            <li><%= check_box_tag "q[is_gps_eq]", true %> GPS</li>
+                            <li><%= check_box_tag "q[is_lecteur_cd_eq]", true %> Lecteur CD</li>
+                            <li><%= check_box_tag "q[is_audio_input_eq]", true %> Audio input</li>
+                            <hr>
+                            <li><%= button_tag "", class: "btn btn-custom btn-block btn-lg" do %>
+                            <i class="fa fa-search"></i>
+                            <% end %>
+                            </li>
+                            <% end %>
+                        </ul>
+                    </div>  
+                </div>
+            </div>
+            <div class="col-md-9 col-sm-9">
+                <div class="search-results-box">
+                    <div class="row">
+                        <div class="col-md-12 search-results">
+                            Ville : <span>"<%= params["search"] %>"</span>  Results : <span><%= @arrVoitures.size %></span> résultats
+                        </div>
+                    </div>
+                </div>
+                <div class="list-results">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <% @arrVoitures.each do |voiture| %>
+                            <div class="item-ads">
+                                <div class="row">
+                                    <div class="col-sm-2 col-xs-3">
+                                        <div class="item-img">
+                                            <%= image_tag voiture.photos[0].image.url(:medium) %>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-8 col-xs-6">
+                                        <div class="item-title">
+                                            <h4><%= link_to "#{voiture.marque} #{voiture.modele}", voiture_path(voiture) %><h4>
+                                            </h4>
+                                        </div>
+                                        <div class="item-meta">
+                                            <ul>
+                                                <li class="item-date"><i class="fa fa-clock-o"></i> <%= time_ago_in_words(voiture.created_at) %></li>
+                                                <li class="item-location hidden-xs"><a href="category.html"><i class="fa fa-map-marker"></i> <%= voiture.ville %></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-2 col-xs-3">
+                                        <div class="item-price">
+                                            <h3><%= voiture.prix %> Dhs</h3>
+                                            <span>Disponible</span>
+                                        </div>
+                                        <div class="item-action">
+                                            <br>
+                                            <ul>
+                                                <li><a href="detail.html" data-toggle="tooltip" data-placement="top" title="Show Details" class="btn btn-success btn-sm"><i class="fa fa-eye"></i></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <% end %>
+                        </div>
+                    </div>
+                </div>
+                 <div class="row">
+                    <div class="col-md-12 text-right">
+                        <%= will_paginate @arrVoitures, :previous_label => 'Précédent', :next_label => 'Suivant' %>
+                    </div>
+                </div>
+            </div>  
+        </div>
+    </div>
+</section>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('[data-toggle="tooltip"]').tooltip();
+    });
+
+    function numbersonly(myfield, e, dec) { var key; var keychar; if (window.event) key = window.event.keyCode; else if (e) key = e.which; else return true; keychar = String.fromCharCode(key); if ((key==null) || (key==0) || (key==8) || (key==9) || (key==13) || (key==27) ) return true; else if ((("0123456789").indexOf(keychar) > -1)) return true; else if (dec && (keychar == ".")) { myfield.form.elements[dec].focus(); return false; } else return false; }
+
+</script>

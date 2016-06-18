@@ -1,0 +1,25 @@
+<div class="account-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4 col-md-3 col-lg-2">
+                <!-- User avatar -->
+                <div class="profile_avatar">
+                    <%= image_tag avatar_url(@user), class: "img-responsive", alt: "avatar" %>
+                </div>
+            </div>
+            <div class="col-sm-8 col-md-9 col-lg-10">
+                <div class="profile_summary">
+                    <!-- User name --> 
+                    <h3 class="profile_name"><%= "#{resource.name}" %></h3>
+                    <!-- User status -->
+                    <p><%= pluralize(resource.voitures.count, "voiture") %> sur nomSite</p>
+                    <!-- Contact -->
+                    <%= link_to root_path, {class:"btn btn-primary btn-warning btn-sm"} do %>
+                      <i class="fa fa-sign-out"></i> Sign Out
+                    <% end %>
+
+                </div> <!-- / .profile__summary -->
+            </div>
+        </div> <!-- / .row -->
+    </div> <!-- / .container -->
+</div>

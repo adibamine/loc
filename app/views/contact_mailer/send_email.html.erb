@@ -1,0 +1,6 @@
+<h1>Vous avez reçu un nouveau mail <%= @email.created_at.strftime("le %m/%d/%Y à %I:%M%p") %></h1>
+<hr>
+<p>De la part de : <%= @email.nom %></p>
+<p>Email : <%= @email.sender_email %></p>
+Contenu : <br>
+<%= @email.contenu %>
