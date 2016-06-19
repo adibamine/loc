@@ -124,7 +124,6 @@
 </section>
 <script>
   $('#average_rating').raty({
-    path: '',
     readOnly: true,
     score: <%= @user.average_rating %>
   });
@@ -139,7 +138,7 @@
   }
   
   
-  loadScript('//maps.googleapis.com/maps/api/js?v=3&sensor=false&callback=initialize');
+  loadScript('//maps.googleapis.com/maps/api/js?v=3&callback=initialize');
 
 
 function initialize() {
