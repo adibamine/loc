@@ -34,7 +34,7 @@
 				<div class="col-xs-6 select">
 					<div class="form-group">
 						<label>Marque</label>
-						<%= f.select :marque, [["Audi","Audi"], ["BMW","BMW"], ["Nissan","Nissan"], ["Volsvaken","Volsvaken"], ["Tesla","Tesla"]], id: "marque", prompt: "Select...", class: "form-control" %>
+						<%= f.select :marque, [["Audi","Audi"], ["BMW","BMW"], ["Nissan","Nissan"], ["Volsvaken","Volsvaken"], ["Mercedes","Mercedes"]], id: "marque", prompt: "Marque...", class: "form-control" %>
 					</div>
 				</div>
 
@@ -57,7 +57,7 @@
 				<div class="col-xs-6">
 					<div class="form-group">
 						<label>Ville</label>
-						<%= f.text_field :ville, placeholder: "What is your city?", class: "form-control" %>
+						<%= f.text_field :ville, placeholder: "Dans quelle ville?", class: "form-control" %>
 					</div>
 				</div>
 			</div>
@@ -66,7 +66,7 @@
 					<div class="col-md-4 select">
 						<div class="form-group">
 							<label>Portes</label>
-							<%= f.select :nb_portes, [["1",1], ["2",2], ["3",3], ["4",4], ["5",5], ["6",6], ["7+",7]], prompt: "Select...", class: "form-control" %>
+							<%= f.select :nb_portes, [["2",2], ["3",3], ["4",4], ["5",5], ["6",6], ["7+",7]], prompt: "Select...", class: "form-control" %>
 						</div>
 					</div>
 
@@ -89,14 +89,14 @@
 					<div class="col-md-4 select">
 						<div class="form-group">
 							<label>Consommation</label>
-							<%= f.select :consommation, [["1 Litre",1], ["2 Litres",2], ["3 Litres",3], ["4 Litres",4], ["5 Litres",5]], id: "consommation", prompt: "Select...", class: "form-control" %>
+							<%= f.select :consommation, [["1 Litre",1], ["2 Litres",2], ["3 Litres",3], ["4 Litres",4], ["5 Litres",5]], ["6 Litres",6], id: "consommation", prompt: "Select...", class: "form-control" %>
 						</div>
 					</div>
 
 					<div class="col-md-4 select">
 						<div class="form-group">
 							<label>Places</label>
-							<%= f.select :nb_places, [["1",1], ["2",2], ["3",3], ["4",4], ["5",5], ["6+",6]], prompt: "Select...", class: "form-control" %>
+							<%= f.select :nb_places, [["1",1], ["2",2], ["3",3], ["4",4], ["5",5], ["6+",6]], prompt: "Places...", class: "form-control" %>
 						</div>
 					</div>
 

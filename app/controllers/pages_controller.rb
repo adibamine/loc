@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
   def home
-  	@voitures = Voiture.limit(3)
+  	@voitures = Voiture.where(active: true).limit(3)
   end
 
   def contact
