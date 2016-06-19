@@ -117,9 +117,6 @@
     _adjustPath: function() {
       this.opt.path = this.opt.path || '';
 
-      if (this.opt.path && this.opt.path.charAt(this.opt.path.length - 1) !== '/') {
-        this.opt.path += '/';
-      }
     },
 
     _adjustPrecision: function() {
@@ -737,7 +734,7 @@
     noRatedMsg   : 'Not rated yet!',
     number       : 5,
     numberMax    : 20,
-    path         : undefined,
+    path         : '',
     precision    : false,
     readOnly     : false,
     round        : { down: 0.25, full: 0.6, up: 0.76 },
@@ -746,7 +743,7 @@
     single       : false,
     space        : true,
     starHalf     : '<%= asset_path "star-half.png" %>',
-    starOff      : 'url('<%= asset_path "star-off.png" %>')',
+    starOff      : '<%= asset_path "star-off.png" %>',
     starOn       : '<%= asset_path "star-on.png" %>',
     starType     : 'img',
     target       : undefined,
