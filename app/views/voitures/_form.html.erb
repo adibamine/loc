@@ -89,14 +89,14 @@
 					<div class="col-md-4 select">
 						<div class="form-group">
 							<label>Consommation</label>
-							<%= f.select :consommation, [["1 Litre",1], ["2 Litres",2], ["3 Litres",3], ["4 Litres",4], ["5 Litres",5]], ["6 Litres",6], id: "consommation", prompt: "Select...", class: "form-control" %>
+							<%= f.select :consommation, [["1 Litre",1], ["2 Litres",2], ["3 Litres",3], ["4 Litres",4], ["5 Litres",5]], ["6 Litres+",6]], id: "consommation", prompt: "Select...", class: "form-control" %>
 						</div>
 					</div>
 
 					<div class="col-md-4 select">
 						<div class="form-group">
 							<label>Places</label>
-							<%= f.select :nb_places, [["1",1], ["2",2], ["3",3], ["4",4], ["5",5], ["6+",6], prompt: "Places...", class: "form-control" %>
+							<%= f.select :nb_places, [["1",1], ["2",2], ["3",3], ["4",4], ["5",5], ["6+",6]], prompt: "Places...", class: "form-control" %>
 						</div>
 					</div>
 
