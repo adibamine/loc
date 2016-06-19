@@ -6,8 +6,8 @@
  */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
 @import url(//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css);
-@import url(http://fonts.googleapis.com/css?family=Droid+Sans);
-@import url(http://weloveiconfonts.com/api/?family=fontawesome);
+@import url(https://fonts.googleapis.com/css?family=Droid+Sans);
+@import url(https://weloveiconfonts.com/api/?family=fontawesome);
 /* line 9, /home/adib/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/bootstrap-sass-3.3.6/assets/stylesheets/bootstrap/_normalize.scss */
 html {
   font-family: sans-serif;
@@ -10763,7 +10763,7 @@ h2.product-title {
 }
 
 /* comments */
-/*font Awesome http://fontawesome.io*/
+/*font Awesome https://fontawesome.io*/
 /*Comment List styles*/
 /* line 1118, /home/adib/projects/location_project/app/assets/stylesheets/application.scss */
 .comment-list .row {
