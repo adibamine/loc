@@ -4,7 +4,7 @@ class UsersController < ApplicationController
 	def show
 		increment_counter
 		@email = Email.new
-		@voitures = @user.voitures
+		@voitures = @user.voitures.where(active:true)
 		@reviews = @user.reviews
 	end
 
