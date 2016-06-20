@@ -1,5 +1,5 @@
 class ReservationsController < ApplicationController
-	before_action :authenticate_user!
+	before_action :authenticate_user!, except:[:preload, :preview]
 	before_action :set_reservation, only: [:edit, :update, :disable, :enable]
 	before_action :check_permission, only: [:edit, :disable, :enable]
 	
@@ -23,7 +23,7 @@ class ReservationsController < ApplicationController
 	end
 
 	def index
-		@reservations = current_user.reservations.where(active: true)
+		@reservations = current_user.reservations.where(active: true).paginate(page: params[:page], per_page:10)
 	end
 
 	def new

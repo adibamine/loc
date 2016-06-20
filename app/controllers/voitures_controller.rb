@@ -15,7 +15,7 @@ def increment_msg
 end
 
 def index
-  @voitures = current_user.voitures
+  @voitures = current_user.voitures.paginate(page: params[:page], per_page:10)
   @user = current_user
 end
 
@@ -23,6 +23,7 @@ def show
   increment_counter
   @email = Email.new
   @photos = @voiture.photos
+  @similaires = @voiture.similaires(@voiture.id)
 end
 
 def new

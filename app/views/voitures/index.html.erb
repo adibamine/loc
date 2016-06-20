@@ -77,13 +77,7 @@
                 </table> 
                 <div class="row">
                     <div class="col-xs-12 text-right">
-                        <ul class="pagination table-pagination">
-                            <li><a href="#">1</a></li>
-                            <li><a href="#">2</a></li>
-                            <li class="active"><a href="#">3</a></li>
-                            <li><a href="#">4</a></li>
-                            <li><a href="#">5</a></li>
-                        </ul>
+                        <%= will_paginate @voitures, :previous_label => 'Précédent', :next_label => 'Suivant' %>
                     </div>
                 </div>              
             </div>

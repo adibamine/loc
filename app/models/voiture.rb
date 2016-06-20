@@ -14,8 +14,8 @@ class Voiture < ActiveRecord::Base
   validates :ville, presence: true
   validates :prix, presence: true
 
-def similaires
-  return Voiture.where(active: true).limit(3)
+def similaires(id_)
+  return Voiture.where.not(active: false, id: id_).limit(3)
 end
 
 end

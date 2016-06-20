@@ -120,7 +120,11 @@
                                         <div class="item-action">
                                             <br>
                                             <ul>
-                                                <li><a href="detail.html" data-toggle="tooltip" data-placement="top" title="Show Details" class="btn btn-success btn-sm"><i class="fa fa-eye"></i></a></li>
+                                                <li>
+                                                    <%= link_to voiture, {class:"btn btn-success btn-sm"} do %>
+                                                    <i class="fa fa-eye"></i>
+                                                    <% end %>
+                                                </li>
                                             </ul>
                                         </div>
                                     </div>

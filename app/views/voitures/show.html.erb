@@ -98,8 +98,7 @@
                                     <div class="col-xs-6">
                                         <div class="item-action pull-right">
                                             <ul>
-                                                <li><a href="#" data-toggle="tooltip" data-placement="top" title="Save Favorite" class="btn btn-success btn"><i class="fa fa-heart"></i></a></li>
-                                                <li><a href="#" data-toggle="tooltip" data-placement="top" title="Show Details" class="btn btn-info btn"><i class="fa fa-share-alt"></i></a></li>
+                                                <li><a href="#" data-toggle="tooltip" data-placement="top" title="Show Details" class="btn btn-success btn"><i class="fa fa-share-alt"></i></a></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -114,7 +113,7 @@
                             <h2>Propositions</h2>
                         </div>
                         <div class="row">
-                            <% for voiture in @voiture.similaires %>
+                            <% for voiture in @similaires %>
                             <div class="col-md-4">
                                 <div class="item-ads-grid">
                                     <div class="item-img-grid">
@@ -135,8 +134,12 @@
                                         </div>
                                         <div class="item-action-grid pull-right">
                                             <ul>
-                                                <li><a href="#" data-toggle="tooltip" data-placement="top" title="Save Favorite" class="btn btn-default btn-sm"><i class="fa fa-heart"></i></a></li>
-                                                <li><a href="detail.html" data-toggle="tooltip" data-placement="top" title="Show Details" class="btn btn-success btn-sm"><i class="fa fa-eye"></i></a></li>
+                                                <li>
+                                                    <%= link_to voiture, {class:"btn btn-success btn-sm"} do %>
+                                                        <i class="fa fa-eye"></i>
+                                                    <% end %>
+                                                    </a>
+                                                </li>
                                             </ul>
                                         </div>
                                     </div>

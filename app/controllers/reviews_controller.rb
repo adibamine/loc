@@ -1,7 +1,7 @@
 class ReviewsController < ApplicationController
 
 	def index
-	  @reviews = current_user.reviews
+	  @reviews = current_user.reviews.paginate(page: params[:page], per_page:10)
 	  @user = current_user
 	end
 
