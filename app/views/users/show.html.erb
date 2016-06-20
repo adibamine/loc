@@ -1,5 +1,5 @@
 <section class="main no-padding">
-<%= render('shared/account_fix') %>
+<%= render('shared/user_fix') %>
 <div class="container">
 <div class="row">
     <div class="col-md-3 col-sm-3">
@@ -105,7 +105,7 @@
         <h3 id="myModalLabel">Nous sommes impatients de prendre contact avec vous !</h3>
       </div>
       <div class="modal-body">
-        <%= form_for @email , :html => {:class => 'form-horizontal col-sm-12'} do |f| %>
+        <%= form_for @email , :html => {:id => 'contact', :class => 'form-horizontal col-sm-12'} do |f| %>
           <input type="hidden" name="email[user_id]" value="<%= @user.id %>">
           <input type="hidden" name="email[receiver_email]" value="<%= @user.email %>">
           <div class="form-group"><label>Nom</label><input name="email[nom]" class="form-control required" placeholder="Votre nom complet" data-placement="top" data-trigger="manual" data-content="Doit contenir au moins 3 lettres." type="text"></div>
@@ -243,7 +243,7 @@ $.fn.goValidate = function() {
         $(this).data("shown",false);
     });
   
-    $form.submit(function(e) {
+    $('#contact').submit(function(e) {
       
         $inputs.each(function() {
             if ($(this).is('.required') || $(this).hasClass('invalid')) {

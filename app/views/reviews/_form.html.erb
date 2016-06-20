@@ -1,5 +1,5 @@
 <%= form_for([@user, @user.reviews.new], html: { class: "form-horizental" }) do |f| %>
-	
+	<%= f.hidden_field :user_id, value: @user.id %>
 	<div class="row">
         <div class="col-xs-6">
 			<%= f.text_field :name, class: "form-control", placeholder: "Nom complet" %>
@@ -19,8 +19,6 @@
 			<center><%= f.submit "Envoyer", class: "btn btn-default" %></center>
 		</div>
 	</div>
-
-	<%= f.hidden_field :user_id, value: @user.id %>
 <hr>
 
 <% end %>

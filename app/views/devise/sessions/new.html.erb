@@ -1,8 +1,5 @@
     <section class="main">
         <div class="container">
-          <div class="row" align="center">
-    <%= link_to "Sign In with Google", user_omniauth_authorize_path(:google_oauth2), class: "btn btn-primary" %>
-  </div><hr>
             <div class="row">
                 <div class="col-sm-5 login-form">
                     <div class="panel panel-default">
@@ -17,14 +14,6 @@
                                 </div>
                                 <div class="form-group">
                                     <%= f.password_field :password, autocomplete: "off", :class=> "form-control", :placeholder => "Mot de passe" %>
-                                </div>
-                                <div class="form-group">
-                                    <div class="checkbox">
-                                        <label for="terms" class="string optional">
-                                            <input type="checkbox" style="" id="terms">
-                                            &nbsp I Agree with Term and Conditions
-                                        </label>
-                                    </div>
                                 </div>
                                 <div class="form-group">
                                     <%= f.submit "Sign up", :class => "btn btn-block btn-custom" %>

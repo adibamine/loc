@@ -76,6 +76,7 @@ Rails.application.configure do
   config.log_formatter = ::Logger::Formatter.new
 
   # Do not dump schema after migrations.
+  Rails.application.routes.default_url_options[:host] = 'localhost:3000'
   config.active_record.dump_schema_after_migration = false
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
@@ -86,4 +87,5 @@ Rails.application.configure do
     password:             'greenboys05@@',
     authentication:       'plain',
     enable_starttls_auto: true  }
+
 end

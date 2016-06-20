@@ -11,7 +11,13 @@
 
             <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, id: "UserProfileForm", class: "form-horizental" }) do |f| %>
             <%= render 'shared/devisemes' %>
-                <div class="panel-body">            
+                <div class="panel-body">  
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">Logo</label>
+                        <div class="col-sm-9">
+                            <%= f.file_field :avatar %>
+                        </div>
+                    </div><br>        
                     <div class="form-group">
                         <label class="col-sm-3 control-label">Nom Société</label>
                         <div class="col-sm-9">
@@ -33,7 +39,7 @@
                     <div class="form-group">
                         <label class="col-sm-3 control-label">Téléphone</label>
                         <div class="col-sm-9">
-                            <%= f.text_field :phone_number, :placeholder => "Numero de telephone", :class => 'form-control' %>
+                            <%= f.text_field :phone_number, :placeholder => "Numéro de telephone", :class => 'form-control' %>
                         </div>
                     </div><br>
                     <div class="form-group">
@@ -46,13 +52,13 @@
                     <div class="form-group">
                         <label class="col-sm-3 control-label">Nouveau Mdp</label>
                         <div class="col-sm-9">
-                            <%= f.password_field :password, autocomplete: "off", :placeholder => "New Password (leave blank if you don't want to change it)", :class => 'form-control' %>
+                            <%= f.password_field :password, autocomplete: "off", :placeholder => "Nouveau mot de passe(Laisser vide sinon)", :class => 'form-control' %>
                         </div>
                     </div><br>
                     <div class="form-group">
                         <label  class="col-sm-3 control-label">Confirmez</label>
                         <div class="col-sm-9">
-                            <%= f.password_field :password_confirmation, autocomplete: "off", :placeholder => "Confirm Password", :class => 'form-control' %>
+                            <%= f.password_field :password_confirmation, autocomplete: "off", :placeholder => "Confirmez le mot de passe", :class => 'form-control' %>
                         </div>
                     </div>
 

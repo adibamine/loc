@@ -14,7 +14,7 @@ Rails.application.routes.draw do
 	resources :clients
 	resources :photos
 	resources :reservations
-	resources :reviews
+	resources :reviews, only: [:index, :create]
 	resources :emails, only: [:create]
 	resources :commandes, only: [:index, :create]
 

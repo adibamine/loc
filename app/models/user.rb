@@ -10,14 +10,17 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable,
          :confirmable, :omniauthable
 
-   validates :name, presence: true, length: {maximum: 50}
+  validates :name, presence: true, length: {maximum: 50}
 
-   has_many :voitures
-   has_many :reservations, through: :voitures
-   has_many :reviews
+  has_many :voitures
+  has_many :reservations, through: :voitures
+  has_many :reviews
 
-   geocoded_by :address
-   after_validation :geocode, if: :address_changed?
+  has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100#" }, :default_url => "/images/:style/missing.png"
+  validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
+
+  geocoded_by :address
+  after_validation :geocode, if: :address_changed?
 
   def average_rating
     reviews.count == 0 ? 0 : reviews.average(:star).round(2)
