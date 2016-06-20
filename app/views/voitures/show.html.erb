@@ -157,7 +157,7 @@
                     </div>
                     <div class="widget-body text-center">
                         <%= image_tag(@voiture.user.avatar.url(:medium), class: "seller-avatar img-responsive") %>
-                        <h2 class="seller-name"><%= link_to "#{@voiture.user.name}", voiture.user %></h2>
+                        <h2 class="seller-name"><%= link_to "#{@voiture.user.name}", @voiture.user %></h2>
                         <p class="seller-detail">Email: <strong><%= @voiture.user.email %></strong><br/>
                             Joined : <strong><%= @voiture.user.created_at.strftime("%v") %></strong></p>
                     </div>
