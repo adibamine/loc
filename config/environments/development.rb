@@ -48,4 +48,14 @@ Rails.application.configure do
     password:             'greenboys05@@',
     authentication:       'plain',
     enable_starttls_auto: true  }
+
+  config.paperclip_defaults = {
+    storage: :s3,
+    s3_credentials: {
+    bucket: 'rentacarma',
+    access_key_id: 'AKIAJWBMINBS35HXSPGA',
+    secret_access_key: '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',
+    s3_region: 'us-east-1',
+  }
+  }
 end
