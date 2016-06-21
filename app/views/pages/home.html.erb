@@ -74,34 +74,7 @@
     </div>
     </div>
 </section>
-<%= render 'counter' %>
 <script type="text/javascript">
-    $(document).ready(function () {
-
-        // ===========Featured Owl Carousel============
-        if ($(".owl-carousel-featured").length > 0) {
-            $(".owl-carousel-featured").owlCarousel({
-                items: 3,
-                lazyLoad: true,
-                pagination: true,
-                autoPlay: 5000,
-                stopOnHover: true
-            });
-        }
-
-        // ==================Counter====================
-        $('.item-count').countTo({
-            formatter: function (value, options) {
-                return value.toFixed(options.decimals);
-            },
-            onUpdate: function (value) {
-                console.debug(this);
-            },
-            onComplete: function (value) {
-                console.debug(this);
-            }
-        });
-    });
 
 $('#query').typeahead({        
         local: ['Marrakech','Casa Blanca','Rabat','Fès','Tanger','Agadir','Meknes','Essaouira','Ouarzazate','Oujda','Tétouane','El Jadida','Béni Melal','Chefchaouen','Safi','Salé','Kenitra','Mohammedia','Nador','Ifrane','Larache','Taroudant','Al Hoceïma','Berkane','Laâyoune','Errachidia','Khouribga','Assila','Settat','Tiznit','Taza','Midelt','Bouznika','Saïdia','Merzouga']
