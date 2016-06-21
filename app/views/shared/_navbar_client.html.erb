@@ -8,7 +8,7 @@
                 <span class="icon-bar"></span>
             </button>
           <%= link_to root_path, {class:"navbar-brand"} do %>
-              <span class="logo"><i class="fa fa-car"></i> RENTACAR.MA</span>
+              <span class="logo"><i class="fa fa-car"></i> HAPPYCAR.MA</span>
           <% end %>
         </div>
 
@@ -20,7 +20,7 @@
                   <% end %>
                 </li>
               <li>
-                <%= link_to user_path(current_user) do %>
+                <%= link_to ma_page_path(current_user.url) do %>
                 <i class="fa fa-automobile"></i> Mon agence
                 <% end %>
               </li>

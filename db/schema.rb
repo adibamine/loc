@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160620185510) do
+ActiveRecord::Schema.define(version: 20160621200535) do
 
   create_table "clients", force: :cascade do |t|
     t.string  "nom",       limit: 255
@@ -118,6 +118,7 @@ ActiveRecord::Schema.define(version: 20160620185510) do
     t.string   "avatar_content_type",    limit: 255
     t.integer  "avatar_file_size",       limit: 4
     t.datetime "avatar_updated_at"
+    t.string   "url",                    limit: 255
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree

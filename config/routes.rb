@@ -44,8 +44,11 @@ Rails.application.routes.draw do
 	get '/faq' => 'pages#faq', :as => :faq
 	get '/contact' => 'pages#contact', :as => :contact
 
-	get '/marmara' => 'users#show', id: 4
 	get '/offres' => 'pages#offres'
 	get '/pack_personnel' => 'pages#pack_personnel'
+	get '/:id' => 'users#agence', :as => :ma_page
+	%w( 404 422 500 503 ).each do |code|
+    get code, :to => "errors#show", :code => code
+  	end
 
 end

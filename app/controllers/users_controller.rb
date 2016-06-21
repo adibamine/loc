@@ -8,6 +8,16 @@ class UsersController < ApplicationController
 		@reviews = @user.reviews
 	end
 
+	def agence
+		url_ = params[:id].to_s
+		@user = User.find_by_url(url_)
+		increment_counter
+		@email = Email.new
+		@voitures = @user.voitures.where(active:true)
+		@reviews = @user.reviews
+		render :template => "users/show"
+	end
+
 	def stats
 		@user = current_user
 	end
