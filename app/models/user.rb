@@ -6,8 +6,8 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   before_save { self.email = email.downcase }
-  before_create { self.city = city.downcase }
   before_save { self.url = name.parameterize('_')}
+  before_save :downcase_city, if: :city_changed?
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
          :confirmable, :omniauthable
@@ -24,6 +24,10 @@ class User < ActiveRecord::Base
 
   geocoded_by :address
   after_validation :geocode, if: :address_changed?
+
+  def downcase_city
+    self.city = city.downcase
+  end
 
   def average_rating
     reviews.count == 0 ? 0 : reviews.average(:star).round(2)
