@@ -52,23 +52,28 @@
                             <td><%= voiture.compteur %></td>
                             <td>
                                 <ul class="actions-table">
-                                                        <li><%= link_to edit_voiture_path(voiture), class:"label label-success" do %>
-                                                            <i class="fa fa-pencil"></i> Modifier
-                                                        <% end %></li>
-                                                        <li><%= link_to reservate_voiture_path(voiture), class:"label label-info" do %>
-                                                            <i class="fa fa-calendar-plus-o"></i> Réserver
-                                                        <% end %></li>
-                                                        <li>
-                                                            <% if(voiture.active) %>
-                                                            <%= link_to disable_voiture_path(voiture), class:"label label-warning" do %>
-                                                            <i class="fa fa-close"></i> Desactiver
-                                                            <% end %>
-                                                            <% else %>
-                                                            <%=  link_to enable_voiture_path(voiture), class:"label label-success" do %>
-                                                            <i class="fa fa-close"></i> Activer
-                                                        <% end %>
-                                                        <% end %>
-                                                        </li>
+                                    <li><%= link_to edit_voiture_path(voiture), class:"label label-success" do %>
+                                        <i class="fa fa-pencil"></i> Modifier
+                                        <% end %></li>
+                                        <li><%= link_to reservate_voiture_path(voiture), class:"label label-info" do %>
+                                        <i class="fa fa-calendar-plus-o"></i> Réserver
+                                        <% end %></li>
+                                        <li>
+                                        <% if(voiture.active) %>
+                                        <%= link_to disable_voiture_path(voiture), class:"label label-warning" do %>
+                                        <i class="fa fa-close"></i> Desactiver
+                                        <% end %>
+                                        <% else %>
+                                        <%=  link_to enable_voiture_path(voiture), class:"label label-success" do %>
+                                        <i class="fa fa-close"></i> Activer
+                                        <% end %>
+                                        <% end %>
+                                        </li>
+                                        <li>
+                                         <%= link_to renouveler_voiture_path(voiture), class:"label label-primary" do %>
+                                        <i class="fa fa-arrow-up"></i> Renouveler
+                                        <% end %>   
+                                        </li>
                                 </ul>
                             </td>
                         </tr>

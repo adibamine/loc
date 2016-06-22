@@ -1,0 +1,43 @@
+<section class="main no-padding">
+<%= render('shared/account_fix') %>
+<div class="panel panel-default">
+	<div class="panel-heading">
+		Publiez votre annonce
+	</div>
+	<% if @voiture.errors.any? %>
+  <div class="row">
+    <div class="col-xs-8 col-xs-offset-2">
+      <div class="panel panel-danger">
+        <div class="panel-heading">
+          <h2 class="panel-title">
+            <%= pluralize(@voiture.errors.count, "error") %>
+            L article n a pas pû etre enregitré
+          </h2>
+          <div class="panel-body">
+            <ul>
+              <% @voiture.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+             </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
+	<div class="panel-body">
+		<div class="container">
+			<h1> Renouvellement de votre annonce <%= @voiture.marque %></h1>
+			
+			<%= form_for @renouvellement do |f| %>
+			<%= f.hidden_field :voiture_id, value: @voiture.id %>
+				<div class="actions">
+					<%= f.submit "Renouveler", class: "btn btn-primary" %>
+				</div>
+
+			<% end %>
+
+		</div>
+	</div>
+</div>
+</section>

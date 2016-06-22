@@ -17,6 +17,7 @@ Rails.application.routes.draw do
 	resources :reviews, only: [:index, :create]
 	resources :emails, only: [:create]
 	resources :commandes, only: [:index, :create]
+	resources :renouvellements
 
 	resources :voitures do 
 		resources :reservations, only: [:create]
@@ -24,11 +25,13 @@ Rails.application.routes.draw do
 
 	  resources :users do
 	  	resources :reviews, only: [:create, :destroy]
+	  	resources :renouvellements, only: [:create]
 	  end
 
 	get '/voitures/:id/reservate' => 'reservations#new', :as => :reservate_voiture
 	get '/voitures/:id/disable', to: 'voitures#disable', :as => :disable_voiture
 	get '/voitures/:id/enable', to: 'voitures#enable', :as => :enable_voiture
+	get '/voitures/:id/renouveler', to: 'renouvellements#new', :as => :renouveler_voiture
 	get '/reservations/:id/disable', to: 'reservations#disable', :as => :disable_reservation
 	get '/preload' => 'reservations#preload'
 	get '/preview' => 'reservations#preview'

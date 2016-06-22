@@ -1,5 +1,5 @@
 class VoituresController < ApplicationController
-before_action :set_voiture, only: [:show, :edit, :update, :disable, :enable, :increment_num, :increment_msg]
+before_action :set_voiture, only: [:show, :edit, :update, :disable, :enable, :increment_num, :increment_msg, :renouveler]
 before_action :authenticate_user!, except: [:show]
 
 def increment_num
@@ -12,6 +12,20 @@ def increment_msg
   @voiture.increment(:compteur_msg, 1)
   @voiture.save
   render nothing: true
+end
+
+def renouveler
+  if @voiture.user = current_user
+    if @voiture.update_columns(rank_date: Time.current)
+      @voitures = current_user.voitures.paginate(page: params[:page], per_page:10)
+      @user = current_user
+      flash[:info] = "Renouvellement réussi."
+      render 'index'
+    end
+  else
+    flash[:alert] = "Erreur."
+    render 'index'
+  end
 end
 
 def index
@@ -56,7 +70,8 @@ def edit
   if current_user.id == @voiture.user.id
    @photos = @voiture.photos
   else
-    redirect_to root_path, notice: "you don't have permission." 
+    flash[:alert] = "Vous n'avez pas le droit."
+    redirect_to root_path
   end
 end
 
@@ -64,8 +79,10 @@ def disable
   if current_user.id == @voiture.user.id
    @voiture.update(active: false)
   else
-    redirect_to root_path, notice: "you don't have permission." 
+    flash[:alert] = "Vous n'avez pas le droit."
+    redirect_to root_path
   end
+  flash[:info] = "Voiture désactivée."
   redirect_to voitures_path
 end
 
@@ -73,8 +90,10 @@ def enable
   if current_user.id == @voiture.user.id
    @voiture.update(active: true)
   else
-    redirect_to root_path, notice: "you don't have permission." 
+    flash[:alert] = "Vous n'avez pas le droit."
+    redirect_to root_path 
   end
+  flash[:info] = "Voiture activée."
   redirect_to voitures_path
 end
 
@@ -88,7 +107,7 @@ def update
       end
     end
 
-    redirect_to edit_voiture_path(@voiture), notice: "Saved.."
+    redirect_to edit_voiture_path(@voiture), notice: "Enregistré.."
   else
     render :edit
   end

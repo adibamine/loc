@@ -20,9 +20,9 @@ class PagesController < ApplicationController
     prix_min = params[:prix_min] ? params[:prix_min] : 0
     prix_max = params[:prix_max] ? params[:prix_max] : 2000
   	if session[:loc_search] && session[:loc_search] != ""
-  		@voitures_ville = Voiture.where("active = ? AND ville = ? AND prix > ? AND prix < ?",true, session[:loc_search],prix_min,prix_max).order("created_at DESC").paginate(page: params[:page], per_page:10)
+  		@voitures_ville = Voiture.where("active = ? AND ville = ? AND prix > ? AND prix < ?",true, session[:loc_search],prix_min,prix_max).order("rank_date DESC").paginate(page: params[:page], per_page:10)
   	else
-  		@voitures_ville = Voiture.where("active= ? AND prix > ? AND prix < ?",true,prix_min,prix_max).order("created_at DESC").paginate(page: params[:page], per_page:10)
+  		@voitures_ville = Voiture.where("active= ? AND prix > ? AND prix < ?",true,prix_min,prix_max).order("rank_date DESC").paginate(page: params[:page], per_page:10)
   	end
 
   	@search = @voitures_ville.ransack(params[:q])

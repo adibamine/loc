@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160621232505) do
+ActiveRecord::Schema.define(version: 20160622133706) do
 
   create_table "clients", force: :cascade do |t|
     t.string  "nom",       limit: 255
@@ -57,6 +57,14 @@ ActiveRecord::Schema.define(version: 20160621232505) do
   end
 
   add_index "photos", ["voiture_id"], name: "index_photos_on_voiture_id", using: :btree
+
+  create_table "renouvellements", force: :cascade do |t|
+    t.integer  "voiture_id", limit: 4
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
+
+  add_index "renouvellements", ["voiture_id"], name: "index_renouvellements_on_voiture_id", using: :btree
 
   create_table "reservations", force: :cascade do |t|
     t.integer  "client_id",  limit: 4
@@ -159,11 +167,13 @@ ActiveRecord::Schema.define(version: 20160621232505) do
     t.integer  "compteur_num",          limit: 4,     default: 0
     t.integer  "compteur_msg",          limit: 4,     default: 0
     t.integer  "compteur",              limit: 4,     default: 0
+    t.datetime "rank_date"
   end
 
   add_index "voitures", ["user_id"], name: "index_voitures_on_user_id", using: :btree
 
   add_foreign_key "photos", "voitures"
+  add_foreign_key "renouvellements", "voitures"
   add_foreign_key "reservations", "clients"
   add_foreign_key "reservations", "voitures"
   add_foreign_key "reviews", "users"
