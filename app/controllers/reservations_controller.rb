@@ -24,6 +24,7 @@ class ReservationsController < ApplicationController
 
 	def index
 		@reservations = current_user.reservations.where(active: true).paginate(page: params[:page], per_page:10)
+		@user = current_user
 	end
 
 	def new

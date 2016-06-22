@@ -12,6 +12,7 @@ class User < ActiveRecord::Base
          :confirmable, :omniauthable
 
   validates :name, presence: true, length: {maximum: 50}
+  validates_uniqueness_of :url
 
   has_many :voitures
   has_many :reservations, through: :voitures
