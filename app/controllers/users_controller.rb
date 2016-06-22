@@ -1,5 +1,15 @@
 class UsersController < ApplicationController
 	before_action :set_user, only: [:show, :increment_num, :increment_msg]
+	
+	def villes
+		if params[:id].to_s != "all"
+			@agences = User.where(city: params[:id]).paginate(page: params[:page], per_page:10)
+		else
+			@agences = User.all.paginate(page: params[:page], per_page:10)
+		end
+		render 'index'
+	end
+
 	def show
 		increment_counter
 		@email = Email.new

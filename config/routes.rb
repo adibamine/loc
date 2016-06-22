@@ -47,6 +47,7 @@ Rails.application.routes.draw do
 	get '/espace_clients' => 'pages#espace_clients', :as => :espace_clients
 	get '/faq' => 'pages#faq', :as => :faq
 	get '/contact' => 'pages#contact', :as => :contact
+	get '/villes/:id' => 'users#villes', :as => :users_villes
 
 	get '/offres' => 'pages#offres'
 	get '/pack_personnel' => 'pages#pack_personnel'

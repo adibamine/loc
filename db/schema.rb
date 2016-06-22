@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160622193408) do
+ActiveRecord::Schema.define(version: 20160622222008) do
 
   create_table "clients", force: :cascade do |t|
     t.string  "nom",       limit: 255
@@ -128,6 +128,7 @@ ActiveRecord::Schema.define(version: 20160622193408) do
     t.datetime "avatar_updated_at"
     t.string   "url",                    limit: 255
     t.boolean  "is_admin",                             default: false
+    t.string   "city",                   limit: 255
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree

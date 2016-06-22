@@ -1,0 +1,32 @@
+<section class="main">
+<div class="container">
+<div class="row">
+<div class="col-md-8 col-sm-8">
+<div class="row">
+    <% @agences.each do |agence| %>
+    <div class="col-xs-4 col-sm-3">
+        <div class="shortcut">
+            <div class="item-img-grid">
+                <%= image_tag agence.avatar.url(:medium),class: "img-responsive img-center" %>
+            </div>
+            <h3><%= link_to "#{agence.name}", ma_page_path(agence.url) %></h3>
+            <span class="total-items"><%= agence.voitures.length %> voitures</span>
+        </div>
+    </div>
+    <% end %>
+<br>
+<div class="row">
+    <div class="col-md-12 text-center">
+        <%= will_paginate @agences, :previous_label => 'Précédent', :next_label => 'Suivant' %>
+    </div>
+</div>
+</div>
+</div>
+<div class="col-md-4 col-sm-4">
+<div class="banner-widget">
+    <img src="http://placehold.it/600x275" alt="banner" class="img-responsive">
+</div>
+</div>
+</div>
+</div>
+</section>

@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   before_save { self.email = email.downcase }
+  before_save { self.city = city.downcase }
   before_save { self.url = name.parameterize('_')}
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
