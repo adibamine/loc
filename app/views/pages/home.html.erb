@@ -64,7 +64,7 @@
                         <%= image_tag voiture.photos[0].image.url(:medium) if voiture.photos.length > 0 %>
                     </div>
                     <div class="panel-body">
-                        <%= image_tag avatar_url(voiture.user), class: "img-circle avatar-small" %>&nbsp;
+                        <%= image_tag voiture.user.avatar.url(:thumb), class: "img-circle avatar-small" %>&nbsp;
                         <%= link_to "#{voiture.marque} #{voiture.modele}", voiture %>
                     </div>
                 </div>
