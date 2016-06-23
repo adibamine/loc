@@ -22,6 +22,9 @@
                                         <% end %><br />
                                         <%= f.password_field :password, :class => 'form-control', :placeholder => 'Password',  autocomplete: "off" %>
                                       </div>
+                                <div class=".checkbox-inline">
+                                     <label><%= f.check_box :terms_of_service %> J'accèpte les <u><a href="#" data-toggle="modal" data-target="#bannerformmodal">règles d'utilisation du site HappyCar.ma</a></u></label>
+                                </div>
                                 <div class="form-group">
                                     <button class="btn btn-block btn-custom">Sign Up</button>
                                 </div>
@@ -36,3 +39,37 @@
             </div>
         </div>
     </section>
+    <!-- regles d utilisation -->
+<div class="modal fade bannerformmodal" tabindex="-1" role="dialog" aria-labelledby="bannerformmodal" aria-hidden="true" id="bannerformmodal">
+<div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-content">
+                <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel"><span class="glyphicon glyphicon-info-sign" aria-hidden="true"><i>Règlement de publication</i></h4>
+                </div>
+                <div class="modal-body">
+<h3></span>Contrat</h3>
+<p>HAPPYCAR propose des offres de location de voitures présentes au Maroc. Toutefois, la mise à disposition du service en tant que tel ne fait pas partie de l’obligation de HAPPYCAR, il est de la responsabilité des prestataires de location de voitures.</p>
+<h3>Doublons:</h3>
+<p>Il est interdit de publier plusieurs annonces pour une même voiture.</p>
+<h3>Texte de la publication:</h3>
+<p>La publication doit décrire la voiture. Il ne doit contenir ni un nom d'entreprise ni une URL (adresse Web). Aucun caractère inutile n'est autorisé dans le titre. HAPPYCAR.ma se réserve le droit de modifier le titre et le contenu d'une publication pour qu'il soit conforme au règlement. La voiture doit être décrite dans le texte de l'annonce. Il est interdit de proposer simplement un lien vers une autre page. Le texte des annonces ne doit pas être copié sur une autre annonce : ces textes sont protégés par droit d'auteur.</p>
+<h3>Langue:</h3>
+<p>Seules les annonces en Français sont autorisées.</p>
+<h3>Nombre d’annonces actives par utilisateur:</h3>
+Le nombre d’annonces actives par utilisateur sur HAPPYCAR.ma est limité selon le type de clients.</p>
+<h3>Liens:</h3>
+<p>Les liens inclus dans l'annonce doivent être directement liés à l'article ou au service proposé. Le règlement régissant les annonces s'applique également au lien. Il est interdit d'établir un lien vers un autre site-web.</p>
+<h3>Photos:</h3>
+<p>Les photos incluses dans l'annonce doivent correspondre à la voiture proposée.</p>
+<h3>Offres non réalistes:</h3>
+<p>Les offres non réalistes ne sont pas autorisées. HAPPYCAR.ma se réserve le droit de juger de ce qui n'est pas réaliste.</p>
+                </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+              </div>          
+        </div>
+        </div>
+      </div>
+    </div>
