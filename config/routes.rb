@@ -50,7 +50,6 @@ Rails.application.routes.draw do
 	get '/villes/:id' => 'users#villes', :as => :users_villes
 
 	get '/offres' => 'pages#offres'
-	get '/pack_personnel' => 'pages#pack_personnel'
 	get '/(:id)' => 'users#agence', :as => :ma_page
 	%w( 404 422 500 503 ).each do |code|
     get code, :to => "errors#show", :code => code
