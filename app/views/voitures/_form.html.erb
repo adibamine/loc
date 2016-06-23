@@ -34,7 +34,7 @@
 				<div class="col-xs-6 select">
 					<div class="form-group">
 						<label>Marque</label>
-						<%= f.select :marque, [["Audi","Audi"], ["BMW","BMW"], ["Nissan","Nissan"], ["Volsvaken","Volsvaken"], ["Mercedes","Mercedes"]], id: "marque", prompt: "Select...", class: "form-control" %>
+						<%= f.select :marque, [["Alfa Romeo","alfa romeo"], ["Audi","audi"], ["BMW","bmw"], ["Chevrolet","chevrolet"], ["Cirtroen","citroen"], ["Dacia","dacia"], ["Fiat","fiat"], ["Ford","ford"], ["Honda","honda"], ["Hyundai","hyundai"], ["Jaguar","jaguar"], ["Jeep","jeep"], ["Kia","kia"], ["Land Rover","land rover"], ["Maserati","maserati"], ["Mercedes-Benz","mercedes"], ["Mini","mini"], ["Mitsubishi","mitsubishi"], ["Nissan","nissan"], ["Opel","opel"], ["Peugeot","peugeot"], ["Porshe","porshe"], ["Renault","renault"], ["Seat","seat"], ["Skoda","skoda"], ["Suzuki","suzuki"], ["Toyota","toyota"], ["Volkswagen","volswagen"], ["Volvo","volvo"], ["Autres","autres"]], id: "marque", class: "form-control" %>
 					</div>
 				</div>
 
@@ -57,7 +57,7 @@
 				<div class="col-xs-6">
 					<div class="form-group">
 						<label>Ville</label>
-						<%= f.text_field :ville, placeholder: "Dans quelle ville?", class: "form-control" %>
+						<%= f.select :ville, [["Agadir","agadir"], ["Casablanca","casablanca"], ["Dakhla","dakhla"], ["Essaouira","essaouira"], ["Fes","fes"], ["Kenitra","kenitra"], ["Laayoun","laayoun"], ["Marrakech","marrakech"], ["Nador","nador"], ["Ouarzazate","ouarzazate"], ["Oujda","oujda"], ["Rabat","rabat"], ["Tanger","tanger"]], id: "ville", class: "form-control" %>
 					</div>
 				</div>
 			</div>
@@ -66,21 +66,21 @@
 					<div class="col-md-4 select">
 						<div class="form-group">
 							<label>Portes</label>
-							<%= f.select :nb_portes, [["1",1], ["2",2], ["3",3], ["4",4], ["5",5], ["6",6], ["7+",7]], prompt: "Select...", class: "form-control" %>
+							<%= f.select :nb_portes, [["2",2], ["3",3], ["4",4], ["5",5], ["6",6], ["7",7], ["8+",8]], class: "form-control" %>
 						</div>
 					</div>
 
 					<div class="col-md-4 select">
 						<div class="form-group">
 							<label>Boite de vitesse</label>
-							<%= f.select :boite_vitesse, [["Automatique","Automatique"], ["Manuel","Manuel"]], prompt: "Select...", class: "form-control" %>
+							<%= f.select :boite_vitesse, [["Automatique","automatique"], ["Manuel","manuel"]], class: "form-control" %>
 						</div>
 					</div>
 
 					<div class="col-md-4 select">
 						<div class="form-group">
 							<label>Energie</label>
-							<%= f.select :energie, [["Diesel","Diesel"], ["Essence","Essence"], ["Electrique","Electrique"]], prompt: "Select...", class: "form-control" %>
+							<%= f.select :energie, [["Diesel","diesel"], ["Essence","essence"], ["Electrique","electrique"]], class: "form-control" %>
 						</div>
 					</div>
 				</div>
@@ -89,21 +89,21 @@
 					<div class="col-md-4 select">
 						<div class="form-group">
 							<label>Consommation</label>
-							<%= f.select :consommation, [["1 Litre",1], ["2 Litres",2], ["3 Litres",3], ["4 Litres",4], ["5 Litres",5]], id: "consommation", prompt: "Select...", class: "form-control" %>
+							<%= f.select :consommation, [["1 Litre",1], ["2 Litres",2], ["3 Litres",3], ["4 Litres",4], ["5 Litres",5], ["6+ Litres",6]], id: "consommation", class: "form-control" %>
 						</div>
 					</div>
 
 					<div class="col-md-4 select">
 						<div class="form-group">
 							<label>Places</label>
-							<%= f.select :nb_places, [["1",1], ["2",2], ["3",3], ["4",4], ["5",5], ["6+",6]], prompt: "Select...", class: "form-control" %>
+							<%= f.select :nb_places, [["1",1], ["2",2], ["3",3], ["4",4], ["5",5], ["6+",6]], class: "form-control" %>
 						</div>
 					</div>
 
 					<div class="col-md-4 select">
 						<div class="form-group">
 							<label>Kilometrage</label>
-							<%= f.select :kilometrage, [["0-15.000km","0-15.000km"], ["15-30.000km","15-30.000km"], ["30-50.000km","30-50.000km"], ["50-75.000km","50-75.000km"], ["75-100.000km","75-100.000km"], ["100-150.000km","100-150.000km"], ["150-200.000km","150-200.000km"], ["+200.000km","+200.000km"]], prompt: "Select...", class: "form-control" %>
+							<%= f.select :kilometrage, [["0-15.000km","0-15.000km"], ["15-30.000km","15-30.000km"], ["30-50.000km","30-50.000km"], ["50-75.000km","50-75.000km"], ["75-100.000km","75-100.000km"], ["100-150.000km","100-150.000km"], ["150-200.000km","150-200.000km"], ["+200.000km","+200.000km"]], class: "form-control" %>
 						</div>
 					</div>
 				</div>
@@ -111,7 +111,7 @@
 				<div class="row">
 					<div class="form-group">
 						<label>Description</label>
-						<%= f.text_area :description, rows: 5, placeholder: "Tell about your car", class: "form-control" %>
+						<%= f.text_area :description, rows: 5, placeholder: "Informations additionnelles...", class: "form-control" %>
 					</div>
 				</div>
 
@@ -145,13 +145,19 @@
 					<div class="col-md-4">
 						<div class="form-group">
 							<label>Peut être retournée à</label></br>
-							<%= f.check_box :is_return_marrakech %> Marrakech
-						</div>
-						<div class="form-group">
 							<%= f.check_box :is_return_agadir %> Agadir
 						</div>
 						<div class="form-group">
 							<%= f.check_box :is_return_casablanca %> Casablanca
+						</div>
+						<div class="form-group">
+							<%= f.check_box :is_return_dakhla %> Dakhla
+						</div>
+						<div class="form-group">
+							<%= f.check_box :is_return_essaouira %> Essaouira
+						</div>
+						<div class="form-group">
+							<%= f.check_box :is_return_fes %> Fes
 						</div>
 					</div>
 				</br>
@@ -163,15 +169,25 @@
 							<%= f.check_box :is_return_laayoun %> Laayoun
 						</div>
 						<div class="form-group">
-							<%= f.check_box :is_return_fes %> Fes
+							<%= f.check_box :is_return_marrakech %> Marrakech
 						</div>
-					</div>	
+						<div class="form-group">
+							<%= f.check_box :is_return_nador %> Nador
+						</div>
+					</div>
+
 						<div class="col-md-4">
+						<div class="form-group">
+							<%= f.check_box :is_return_ouarzazate %> Ouarzazate
+						</div>
+						<div class="form-group">
+							<%= f.check_box :is_return_oujda %> Oujda
+						</div>
 						<div class="form-group">
 							<%= f.check_box :is_return_rabat %> Rabat
 						</div>
 						<div class="form-group">
-							<%= f.check_box :is_return_essaouira %> Essaouira
+							<%= f.check_box :is_return_tanger %> Tanger
 						</div>
 					</div>	
 				</div>	

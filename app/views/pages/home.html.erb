@@ -1,3 +1,6 @@
+<% content_for :title do %>
+<%= "1er site de location de voitures au Maroc."%> 
+<% end %>
 <% content_for :searchBar do %>
 <% render 'research' %>
 <% end %>
@@ -96,7 +99,7 @@ Finie la comparaison pénible sur mille et un sites ! Avec HAPPYCAR, la location
 <script type="text/javascript">
 
 $('#query').typeahead({        
-        local: ['Marrakech','Casa Blanca','Rabat','Fès','Tanger','Agadir','Meknes','Essaouira','Ouarzazate','Oujda','Tétouane','El Jadida','Béni Melal','Chefchaouen','Safi','Salé','Kenitra','Mohammedia','Nador','Ifrane','Larache','Taroudant','Al Hoceïma','Berkane','Laâyoune','Errachidia','Khouribga','Assila','Settat','Tiznit','Taza','Midelt','Bouznika','Saïdia','Merzouga']
+        local: ['Agadir','Casablanca','Dakhla','Essaouira','Fes','Kenitra','Laayoune','Marrakech','Nador','Ouarzazate','Oujda','Rabat','Tanger']
 });
 $('.tt-query').css('background-color','#fff');
 

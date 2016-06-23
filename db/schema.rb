@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160622222008) do
+ActiveRecord::Schema.define(version: 20160623023039) do
 
   create_table "clients", force: :cascade do |t|
     t.string  "nom",       limit: 255
@@ -170,6 +170,11 @@ ActiveRecord::Schema.define(version: 20160622222008) do
     t.integer  "compteur_msg",          limit: 4,     default: 0
     t.integer  "compteur",              limit: 4,     default: 0
     t.datetime "rank_date"
+    t.boolean  "is_return_dakhla"
+    t.boolean  "is_return_nador"
+    t.boolean  "is_return_ouarzazate"
+    t.boolean  "is_return_oujda"
+    t.boolean  "is_return_tanger"
   end
 
   add_index "voitures", ["user_id"], name: "index_voitures_on_user_id", using: :btree

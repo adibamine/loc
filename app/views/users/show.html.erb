@@ -1,3 +1,6 @@
+<% content_for :title do %>
+<%= "#{@user.name} : Agence de location de voiture à #{@user.city}"%> 
+<% end %>
 <section class="main no-padding">
 <%= render('shared/user_fix') %>
 <div class="container">

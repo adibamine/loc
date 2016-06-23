@@ -33,7 +33,7 @@
                     <div class="form-group">
                         <label class="col-sm-3 control-label">Ville</label>
                         <div class="col-sm-9">
-                            <%= f.text_field :city, :placeholder => "Ville", :class => 'form-control' %>
+                            <%= f.select :city, [["Agadir","agadir"], ["Casablanca","casablanca"], ["Dakhla","dakhla"], ["Essaouira","essaouira"], ["Fes","fes"], ["Kenitra","kenitra"], ["Laayoun","laayoun"], ["Marrakech","marrakech"], ["Nador","nador"], ["Ouarzazate","ouarzazate"], ["Oujda","oujda"], ["Rabat","rabat"], ["Tanger","tanger"], ["Autre",""]], id: "ville", class: "form-control" %>
                         </div>
                     </div><br>
                     <div class="form-group">
@@ -54,19 +54,6 @@
                             <%= f.text_area :description, rows: 5, cols: 25,  :placeholder => "Description", :class => 'form-control' %>
                         </div>
                     </div><br>
-
-                    <div class="form-group">
-                        <label class="col-sm-3 control-label">Nouveau Mdp</label>
-                        <div class="col-sm-9">
-                            <%= f.password_field :password, autocomplete: "off", :placeholder => "Nouveau mot de passe(Laisser vide sinon)", :class => 'form-control' %>
-                        </div>
-                    </div><br>
-                    <div class="form-group">
-                        <label  class="col-sm-3 control-label">Confirmez</label>
-                        <div class="col-sm-9">
-                            <%= f.password_field :password_confirmation, autocomplete: "off", :placeholder => "Confirmez le mot de passe", :class => 'form-control' %>
-                        </div>
-                    </div>
 
                 </div>
                 <div class="panel-footer">

@@ -1,3 +1,6 @@
+<% content_for :title do %>
+<%= "Location de voiture à #{@voiture.ville} | #{@voiture.marque} #{@voiture.modele}"%> 
+<% end %>
 <section class="main">
     <div class="container">
         <div class="row">
@@ -69,19 +72,49 @@
                                         <li class="<%= 'text-line-through' if !@voiture.is_audio_input %>">Audio input</li>
                                     </div>
                                 </div>
-                                <h4>Peut être retourné à</h4>
+                                <h4>Peut être retournée à</h4>
                                  <div class="row">
-                                    <div class="col-md-6">
+                                    <div class="col-md-4">
                                         <ul class="amenities">
-                                            <li class="<%= 'text-line-through' if !@voiture.is_return_marrakech %>">Marrakech</li>
-                                            <li class="<%= 'text-line-through' if !@voiture.is_return_agadir %>">Agadir</li>
-                                            <li class="<%= 'text-line-through' if !@voiture.is_return_casablanca %>">Casablanca</li>
-                                        </ul>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <li class="<%= 'text-line-through' if !@voiture.is_return_kenitra %>">Kenitra</li>
-                                        <li class="<%= 'text-line-through' if !@voiture.is_return_laayoun %>">Laayoun</li>
-                                        <li class="<%= 'text-line-through' if !@voiture.is_return_fes %>">Fes</li>
+                                            <% if @voiture.is_return_agadir %>
+                                                <li>Agadir</li>
+                                            <% end %>
+                                            <% if @voiture.is_return_casablanca %>
+                                                <li>Casablanca</li>
+                                            <% end %>
+                                            <% if @voiture.is_return_dakhla %>
+                                                <li>Dakhla</li>
+                                            <% end %>
+                                            <% if @voiture.is_return_essaouira %>
+                                                <li>Essaouira</li>
+                                            <% end %>
+                                            <% if @voiture.is_return_fes %>
+                                                <li>Fes</li>
+                                            <% end %>
+                                            <% if @voiture.is_return_kenitra %>
+                                                <li>Kenitra</li>
+                                            <% end %>
+                                            <% if @voiture.is_return_laayoun %>
+                                                <li>Laayoun</li>
+                                            <% end %>
+                                            <% if @voiture.is_return_marrakech %>
+                                                <li>Marrakech</li>
+                                            <% end %>
+                                            <% if @voiture.is_return_nador %>
+                                                <li>Nador</li>
+                                            <% end %>
+                                            <% if @voiture.is_return_ouarzazate %>
+                                                <li>Ouarzazate</li>
+                                            <% end %>
+                                            <% if @voiture.is_return_oujda %>
+                                                <li>Oujda</li>
+                                            <% end %>
+                                            <% if @voiture.is_return_rabat %>
+                                                <li>Rabat</li>
+                                            <% end %>
+                                            <% if @voiture.is_return_tanger %>
+                                                <li>Tanger</li>
+                                            <% end %>
                                     </div>
                                 </div>
                                 <h4><strong>Conditions</strong></h4>
